@@ -1,0 +1,134 @@
+<div>
+  <h2 id="page-heading" data-cy="HeroKeysHeading">
+    <span jhiTranslate="hockeyheroApp.heroKeys.home.title">Hero Keys</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="hockeyheroApp.heroKeys.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-hero-keys"
+        [routerLink]="['/hero-keys/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="hockeyheroApp.heroKeys.home.createLabel"> Create a new Hero Keys </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="heroKeys?.length === 0">
+    <span jhiTranslate="hockeyheroApp.heroKeys.home.notFound">No Hero Keys found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="heroKeys && heroKeys.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="hideMe">
+            <div class="d-flex">
+              <span jhiTranslate="hockeyheroApp.heroKeys.hideMe">Hide Me</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="latitude">
+            <div class="d-flex">
+              <span jhiTranslate="hockeyheroApp.heroKeys.latitude">Latitude</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longitude">
+            <div class="d-flex">
+              <span jhiTranslate="hockeyheroApp.heroKeys.longitude">Longitude</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="age">
+            <div class="d-flex">
+              <span jhiTranslate="hockeyheroApp.heroKeys.age">Age</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="myPosition">
+            <div class="d-flex">
+              <span jhiTranslate="hockeyheroApp.heroKeys.myPosition">My Position</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="skill">
+            <div class="d-flex">
+              <span jhiTranslate="hockeyheroApp.heroKeys.skill">Skill</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="heroDetails.id">
+            <div class="d-flex">
+              <span jhiTranslate="hockeyheroApp.heroKeys.heroDetails">Hero Details</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let heroKeys of heroKeys; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/hero-keys', heroKeys.id, 'view']">{{ heroKeys.id }}</a>
+          </td>
+          <td>{{ heroKeys.hideMe }}</td>
+          <td>{{ heroKeys.latitude }}</td>
+          <td>{{ heroKeys.longitude }}</td>
+          <td>{{ heroKeys.age }}</td>
+          <td>{{ heroKeys.myPosition }}</td>
+          <td>{{ heroKeys.skill }}</td>
+          <td>
+            <div *ngIf="heroKeys.heroDetails">
+              <a [routerLink]="['/hero-details', heroKeys.heroDetails.id, 'view']">{{ heroKeys.heroDetails.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/hero-keys', heroKeys.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/hero-keys', heroKeys.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(heroKeys)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

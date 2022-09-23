@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20220922174619",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "hero_keys",
+  "fields": [
+    {
+      "fieldName": "hideMe",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "latitude",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "longitude",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "age",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "myPosition",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "skill",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "HeroKeys",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "heroDetails",
+      "otherEntityRelationshipName": "heroKeys",
+      "ownerSide": true,
+      "relationshipName": "heroDetails",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

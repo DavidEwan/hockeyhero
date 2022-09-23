@@ -1,0 +1,33 @@
+
+/* these are key s we search on */
+entity HeroKeys {
+	hideMe Boolean, 
+    latitude Double, 
+    longitude Double,
+    age Integer, 
+    myPosition Integer, 
+    skill Integer
+}
+
+/* this is an extension of the user profile */
+entity HeroDetails {
+	phone String, 
+    dateOfBirth LocalDate, 
+	streetAddress String,
+	city String,
+	stateProvince String,
+    postalCode String
+}
+
+// defining multiple oneToOne relationships
+relationship OneToOne {
+	HeroKeys{heroDetails} to HeroDetails{heroKeys},
+	HeroDetails{user} to User{heroDetails}
+}
+
+// use dto to transfer data from angular to sprint
+//dto all with mapstruct
+//service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20220922174620",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "hero_details",
+  "fields": [
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateOfBirth",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "streetAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stateProvince",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postalCode",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "HeroDetails",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "heroDetails",
+      "ownerSide": true,
+      "relationshipName": "user",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "heroKeys",
+      "otherEntityRelationshipName": "heroDetails",
+      "ownerSide": false,
+      "relationshipName": "heroKeys",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

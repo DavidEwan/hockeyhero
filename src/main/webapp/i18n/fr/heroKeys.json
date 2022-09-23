@@ -1,0 +1,30 @@
+{
+  "hockeyheroApp": {
+    "heroKeys": {
+      "home": {
+        "title": "HeroKeys",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Hero Keys",
+        "createOrEditLabel": "Créer ou éditer un Hero Keys",
+        "notFound": "Aucun Hero Keys trouvé"
+      },
+      "created": "Un nouveau Hero Keys a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Hero Keys avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Hero Keys avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Hero Keys {{ id }} ?"
+      },
+      "detail": {
+        "title": "Hero Keys"
+      },
+      "id": "ID",
+      "hideMe": "Hide Me",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "age": "Age",
+      "myPosition": "My Position",
+      "skill": "Skill",
+      "heroDetails": "Hero Details"
+    }
+  }
+}

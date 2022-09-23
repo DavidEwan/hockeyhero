@@ -48,6 +48,8 @@ public class CacheConfiguration {
             createCache(cm, com.hockeyhero.domain.User.class.getName());
             createCache(cm, com.hockeyhero.domain.Authority.class.getName());
             createCache(cm, com.hockeyhero.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.hockeyhero.domain.HeroKeys.class.getName());
+            createCache(cm, com.hockeyhero.domain.HeroDetails.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

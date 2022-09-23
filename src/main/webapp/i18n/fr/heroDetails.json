@@ -1,0 +1,31 @@
+{
+  "hockeyheroApp": {
+    "heroDetails": {
+      "home": {
+        "title": "HeroDetails",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Hero Details",
+        "createOrEditLabel": "Créer ou éditer un Hero Details",
+        "notFound": "Aucun Hero Details trouvé"
+      },
+      "created": "Un nouveau Hero Details a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Hero Details avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Hero Details avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Hero Details {{ id }} ?"
+      },
+      "detail": {
+        "title": "Hero Details"
+      },
+      "id": "ID",
+      "phone": "Phone",
+      "dateOfBirth": "Date Of Birth",
+      "streetAddress": "Street Address",
+      "city": "City",
+      "stateProvince": "State Province",
+      "postalCode": "Postal Code",
+      "user": "User",
+      "heroKeys": "Hero Keys"
+    }
+  }
+}

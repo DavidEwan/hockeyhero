@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="heroDetails">
+      <h2 data-cy="heroDetailsDetailsHeading"><span jhiTranslate="hockeyheroApp.heroDetails.detail.title">Hero Details</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ heroDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hockeyheroApp.heroDetails.phone">Phone</span></dt>
+        <dd>
+          <span>{{ heroDetails.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="hockeyheroApp.heroDetails.dateOfBirth">Date Of Birth</span></dt>
+        <dd>
+          <span>{{ heroDetails.dateOfBirth | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="hockeyheroApp.heroDetails.streetAddress">Street Address</span></dt>
+        <dd>
+          <span>{{ heroDetails.streetAddress }}</span>
+        </dd>
+        <dt><span jhiTranslate="hockeyheroApp.heroDetails.city">City</span></dt>
+        <dd>
+          <span>{{ heroDetails.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="hockeyheroApp.heroDetails.stateProvince">State Province</span></dt>
+        <dd>
+          <span>{{ heroDetails.stateProvince }}</span>
+        </dd>
+        <dt><span jhiTranslate="hockeyheroApp.heroDetails.postalCode">Postal Code</span></dt>
+        <dd>
+          <span>{{ heroDetails.postalCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="hockeyheroApp.heroDetails.user">User</span></dt>
+        <dd>
+          <span>{{ heroDetails.user?.id }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/hero-details', heroDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

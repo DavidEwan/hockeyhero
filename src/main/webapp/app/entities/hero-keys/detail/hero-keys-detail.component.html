@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="heroKeys">
+      <h2 data-cy="heroKeysDetailsHeading"><span jhiTranslate="hockeyheroApp.heroKeys.detail.title">Hero Keys</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ heroKeys.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="hockeyheroApp.heroKeys.hideMe">Hide Me</span></dt>
+        <dd>
+          <span>{{ heroKeys.hideMe }}</span>
+        </dd>
+        <dt><span jhiTranslate="hockeyheroApp.heroKeys.latitude">Latitude</span></dt>
+        <dd>
+          <span>{{ heroKeys.latitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="hockeyheroApp.heroKeys.longitude">Longitude</span></dt>
+        <dd>
+          <span>{{ heroKeys.longitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="hockeyheroApp.heroKeys.age">Age</span></dt>
+        <dd>
+          <span>{{ heroKeys.age }}</span>
+        </dd>
+        <dt><span jhiTranslate="hockeyheroApp.heroKeys.myPosition">My Position</span></dt>
+        <dd>
+          <span>{{ heroKeys.myPosition }}</span>
+        </dd>
+        <dt><span jhiTranslate="hockeyheroApp.heroKeys.skill">Skill</span></dt>
+        <dd>
+          <span>{{ heroKeys.skill }}</span>
+        </dd>
+        <dt><span jhiTranslate="hockeyheroApp.heroKeys.heroDetails">Hero Details</span></dt>
+        <dd>
+          <div *ngIf="heroKeys.heroDetails">
+            <a [routerLink]="['/hero-details', heroKeys.heroDetails.id, 'view']">{{ heroKeys.heroDetails.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/hero-keys', heroKeys.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
