@@ -1,4 +1,4 @@
-name: Application CI
+name: hockeyhero-build
 on: [push, pull_request]
 jobs:
   pipeline:
@@ -25,7 +25,7 @@ jobs:
         run: npm install
       - name: Run backend test
         run: |
-          chmod +x mvnw
+          chmod +x ./mvnw
           npm run ci:backend:test
       - name: Run frontend test
         run: npm run ci:frontend:test
