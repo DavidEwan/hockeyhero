@@ -51,14 +51,12 @@ jobs:
           else
               echo No HEROKU_API_KEY, skipping...
           fi
-      - name: Echo secrets
-        run: echo username:"${{ secrets.DOCKER_USERNAME }}" && echo password:"${{ secrets.DOCKER_PASSWORD }}"
       - name: Build and publish docker image
         if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/'))
         run: |
           GIT_TAG=:${GITHUB_REF#refs/tags/}
           DOCKER_TAG=${GIT_TAG#:refs/heads/main}
-          ./mvnw -ntp jib:build -Djib.to.image=jhipster/hockeyhero${DOCKER_TAG} -Djib.to.auth.username="${{ secrets.DOCKER_USERNAME }}" -Djib.to.auth.password="${{ secrets.DOCKER_PASSWORD }}" -Pprod
+          ./mvnw -ntp jib:build -Djib.to.image=jhipster/hockeyhero${DOCKER_TAG} -Djib.to.auth.username="davidewan" -Djib.to.auth.password="Inverk1rka1g" -Pprod
       - name: 'E2E: Package'
         run: npm run ci:e2e:package
       - name: 'E2E: Prepare'
