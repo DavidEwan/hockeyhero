@@ -41,11 +41,16 @@ spring:
   h2:
     console:
       # disable spring boot built-in h2-console since we start it manually with correct configuration
+      # view the console: http://localhost:8080/h2-console
       enabled: false
   jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
+
   mail:
     host: localhost
     port: 25
