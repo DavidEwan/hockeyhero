@@ -31,7 +31,8 @@ class TokenProviderTest {
     @BeforeEach
     public void setup() {
         JHipsterProperties jHipsterProperties = new JHipsterProperties();
-        String base64Secret = "fd54a45s65fds737b9aafcb3412e07ed99b267f33413274720ddbb7f6c5e64e9f14075f2d7ed041592f0b7657baf8";
+        String base64Secret =
+            "MDZlNGZmZTY5OGQ2MjJkOTgyNzBlMjNiNjNhNWJmMjlhMzE3MGQ2NDI3ZmFiMzQ3ODM3NTZkMzM1NGJkYjBlZjY3NzRkNDc3OGUzMTI5YWJjOGExMjQwNGY2NjU4ZWFiM2NlNWFjMDA5YTFjMzJkM2M3ZjM2MmY1MWVhNDdhZmM=";
         jHipsterProperties.getSecurity().getAuthentication().getJwt().setBase64Secret(base64Secret);
 
         SecurityMetersService securityMetersService = new SecurityMetersService(new SimpleMeterRegistry());
@@ -93,6 +94,7 @@ class TokenProviderTest {
         final String secret = "NwskoUmKHZtzGRKJKVjsJF7BtQMMxNWi";
         JHipsterProperties jHipsterProperties = new JHipsterProperties();
         jHipsterProperties.getSecurity().getAuthentication().getJwt().setSecret(secret);
+        jHipsterProperties.getSecurity().getAuthentication().getJwt().setBase64Secret("");
 
         SecurityMetersService securityMetersService = new SecurityMetersService(new SimpleMeterRegistry());
 
